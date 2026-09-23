@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Natthaphon Philachai | Portfolio & Resume</title>
+    <!-- Google Fonts: Playfair Display (Editorial Serif) & Plus Jakarta Sans / Sarabun -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #FBF9F5;              /* Sand / Off-White */
+            --text-main: #181F1B;            /* Deep Botanical Charcoal */
+            --text-muted: #57635C;           /* Muted Botanical Slate */
+            --accent-rust: #DA6848;          /* Terracotta Rust */
+            --accent-rust-hover: #C25638;
+            --badge-bg: #FDF0EC;             /* Baked Clay */
+            --card-bg: #FFFFFF;
+            --border-subtle: #ECE7DF;         /* Thin warm border */
+            --shadow-soft: 0 8px 30px -4px rgba(24, 31, 27, 0.04), 0 2px 8px -2px rgba(24, 31, 27, 0.02);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.68;
+            padding: 3rem 1.25rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3.5rem 3.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Top Status Pill */
+        .status-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--badge-bg);
+            color: var(--accent-rust);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(218, 104, 72, 0.15);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-rust);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Header Section */
+        header {
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-subtle);
+            background-color: var(--bg-base);
+            flex-shrink: 0;
+        }
+
+        .header-titles h1 {
+            color: var(--text-main);
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .header-titles p.subtitle {
+            color: var(--accent-rust);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem 1.75rem;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            padding-top: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            border-bottom: 1px dashed var(--border-subtle);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-rust);
+            border-bottom-color: var(--accent-rust);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 2.75rem;
+        }
+
+        section h2 {
+            color: var(--text-main);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        section h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-subtle);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        /* Experience & Education Item Cards */
+        .timeline-item {
+            margin-bottom: 1.75rem;
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-rust);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.25rem 1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .item-title {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+
+        .item-company {
+            color: var(--accent-rust);
+            font-weight: 600;
+        }
+
+        .item-date {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .item-sub {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.93rem;
+        }
+
+        .timeline-item ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-item ul li strong {
+            color: var(--text-main);
+        }
+
+        /* Badges & Tags */
+        .skills-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .skills-group-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .badge {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge.highlight {
+            background-color: var(--badge-bg);
+            color: var(--accent-rust);
+            border-color: rgba(218, 104, 72, 0.2);
+            font-weight: 600;
+        }
+
+        /* Reference Box */
+        .ref-box {
+            background-color: var(--bg-base);
+            border: 1px solid var(--border-subtle);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.92rem;
+        }
+
+        .ref-name {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .ref-role {
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        /* Action Buttons */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-rust);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(218, 104, 72, 0.25);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-rust-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-base);
+            color: var(--accent-rust);
+            border-color: var(--accent-rust);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 680px) {
+            .container { padding: 2rem 1.5rem; }
+            .header-top { flex-direction: column; text-align: center; }
+            .contact-info { justify-content: center; }
+            .item-header { flex-direction: column; }
+            .header-titles h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section (Satisfies Assignment 10 Requirement: Hello <ชื่อนิสิต>) -->
+    <header>
+        <div class="header-top">
+            <img src="profile.jpg" alt="Natthaphon Philachai" class="profile-img" onerror="this.src='https://media.licdn.com/dms/image/v2/D5603AQHbUQ7iBV7mxA/profile-displayphoto-scale_400_400/B56Z7F2A86GoAg-/0/1781435732564?e=1792022400&v=beta&t=85GOVydQSA90HJpinp_43U9PrjQjR_Z0LFPUir84o8U';">  
+            <div class="header-titles">
+                <h1>Hello Natthaphon Philachai</h1>
+                <p class="subtitle">Computer Engineering Student | Software Engineering & System Analysis</p>
+            </div>
+        </div>
+        <div class="contact-info">
+            <span>📍 Bangkok / Prachinburi / Chonburi, Thailand</span>
+            <span>📞 061-709-1188</span>
+            <span>✉️ <a href="mailto:pb.natthaphonpsm@gmail.com">pb.natthaphonpsm@gmail.com</a></span>
+            <span>🔗 <a href="https://linkedin.com/in/natthaphon-philachai" target="_blank">LinkedIn</a></span>
+            <span>💻 <a href="https://github.com/Nattopacirus" target="_blank">GitHub</a></span>
+        </div>
+    </header>
+
+    <!-- Summary / About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="section-desc">
+            A Computer Engineering student with hands-on experience in system migration, dashboard design, and workflow automation. Seeking an internship opportunity to leverage a versatile skillset spanning software engineering, systems analysis (SA), and technical business analysis (BA), with a strong focus on applying AI-assisted software engineering to build scalable solutions that drive organizational growth.
+        </p>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        
+        <div class="timeline-item">
+            <div class="item-header">
+                <span class="item-title">Software Engineer (Intern & Contract) — <span class="item-company">ZYCODA (SCG Group)</span></span>
+                <span class="item-date">Apr 2026 - Aug 2026</span>
+            </div>
+            <div class="item-sub">Apr 2026 - Jun 2026 (Summer Internship) | Jun 2026 - Aug 2026 (Freelance Contract)</div>
+            <ul>
+                <li><strong>Legacy System Migration (Freelance):</strong> Re-hired post-internship to migrate a legacy PHP application to Next.js and FastAPI, improving UX/UI, API responsiveness, and codebase maintainability while balancing development work with full-time university studies.</li>
+                <li><strong>Firebase Notification System:</strong> Upgraded push notification services using .NET 9 and Flutter, implementing architectural best practices (FCM Token).</li>
+                <li><strong>High-Performance Dashboard:</strong> Developed a Stock Optimization Dashboard to visualize, analyze, and optimize inventory data for efficient tracking (React + Vite + .NET Core + N8N).</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="item-header">
+                <span class="item-title">Freelance Python/C Tutor & Teaching Assistant</span>
+                <span class="item-date">Jun 2023 - Present</span>
+            </div>
+            <ul>
+                <li><strong>POSN Computer Olympiad Preparation:</strong> Mentored students in fundamental C/Python and competitive programming concepts.</li>
+                <li><strong>Teaching Assistant (TA):</strong> Computer Programming course at Kasetsart University.</li>
+                <li><strong>Part-time Robotics Instructor:</strong> Quantum Motus Institute (Nov 2023 - Feb 2025).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline-item">
+            <div class="item-header">
+                <span class="item-title">Kasetsart University Sriracha Campus</span>
+                <span class="item-date">Jun 2023 - Jun 2027 (Expected)</span>
+            </div>
+            <div class="item-sub">Bachelor of Engineering (Computer and Information Engineering) | 4th Year Student</div>
+            <ul>
+                <li><strong>Cumulative GPA:</strong> 3.11</li>
+                <li><strong>Scholarship:</strong> Energy Absolute Group Scholarship recipient</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Awards & Competitions -->
+    <section id="awards">
+        <h2>Awards & Competitions</h2>
+        <div class="timeline-item">
+            <ul>
+                <li><strong>Winner</strong> — NSO DATA Camp 2025 (Hackathon Competition) | <em>National Statistical Office of Thailand</em></li>
+                <li><strong>Winner</strong> — Hackaplant 2025 competition (Hackathon Competition) | <em>Civic Agrotech Co., Ltd.</em></li>
+                <li><strong>Winner</strong> — Plant Factory with Artificial Lighting (PFAL) Innovation Project Competition | <em>Civic Agrotech Co., Ltd.</em></li>
+                <li><strong>3rd Place</strong> — Code Battle Contest 2025 | <em>Kasetsart University Sriracha Campus</em></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Leadership & Volunteering -->
+    <section id="leadership">
+        <h2>Leadership & Activities</h2>
+        <div class="timeline-item">
+            <ul>
+                <li><strong>Vice President (Academic Affairs)</strong> — Faculty of Engineering at Sriracha Student Union</li>
+                <li><strong>President (Student Representative)</strong> — Computer Engineering Major</li>
+                <li><strong>Coordinator</strong> — STEP UP & P'Sorn Nong Tutoring Projects (Coordination & Documentation)</li>
+                <li><strong>Secretary</strong> — Cyber Geeks Club</li>
+                <li><strong>Staff</strong> — MOU Signing Ceremony (Kasetsart University x ECAM LaSalle)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Skills & Technical Focus -->
+    <section id="skills">
+        <h2>Skills & Technical Focus</h2>
+        
+        <div class="skills-group">
+            <div class="skills-group-title">Technical Focus & Architecture:</div>
+            <div class="skills-grid">
+                <span class="badge highlight">AI-Assisted Software Engineering</span>
+                <span class="badge highlight">Agentic Development</span>
+                <span class="badge highlight">System Architecture Analysis</span>
+                <span class="badge highlight">Workflow Design</span>
+                <span class="badge">Technical Business Analysis (BA)</span>
+                <span class="badge">Systems Analysis (SA)</span>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <div class="skills-group-title">Frameworks & Tools:</div>
+            <div class="skills-grid">
+                <span class="badge">React</span>
+                <span class="badge">Next.js</span>
+                <span class="badge">.NET / .NET Core (.NET 9)</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">Flutter</span>
+                <span class="badge">Laravel 12</span>
+                <span class="badge">N8N</span>
+                <span class="badge">Git & GitHub</span>
+                <span class="badge">Google Antigravity IDE / SDK</span>
+                <span class="badge">Power BI</span>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <div class="skills-group-title">Programming & Databases:</div>
+            <div class="skills-grid">
+                <span class="badge">Python</span>
+                <span class="badge">JavaScript / TypeScript</span>
+                <span class="badge">C#</span>
+                <span class="badge">C / C++</span>
+                <span class="badge">PHP</span>
+                <span class="badge">SQL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Container -->
+    <div class="cta-container">
+        <a href="https://media.licdn.com/dms/image/v2/D562DAQE-cGQB6lpiLg/profile-treasury-document-images_1280/B56Z8zGXKBKUAg-/1/1783268734431?e=1790812800&v=beta&t=wqZIKN-0joe9ENjQwI7QAFBNipiTDNBMbFRSgJVURNY" target="_blank" class="btn">📄 ดู / ดาวน์โหลด PDF Resume</a>
+        <a href="https://github.com/Nattopacirus" target="_blank" class="btn btn-outline">💻 ดูโปรเจกต์บน GitHub</a>
+    </div>
+</div>
+
+</body>
+</html>
